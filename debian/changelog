@@ -1,5 +1,64 @@
-template-repository (1.0-1) unstable; urgency=medium
+golang-github-aws-smithy-go (1.20.3-1) unstable; urgency=medium
 
-  * Initial release
+  * New upstream version 1.20.3
+  * Remove prevent-overflows-in-uint-oob-test-error-messages-on-32-bit.patch
+    which has been applied upstream
 
- -- Tsic404 <liuheng@deepin.org>  Sat, 28 Jan 2023 13:46:49 +0800
+ -- Anthony Fok <foka@debian.org>  Sun, 01 Sep 2024 06:03:17 -0600
+
+golang-github-aws-smithy-go (1.20.2-2) unstable; urgency=medium
+
+  * Cast numbers in "uint oob" test error messages to avoid overflows.
+    Fixes "cannot use maxv + 1 (untyped int constant 2147483648)
+    as int value in argument to fmt.Sprintf (overflows)" in TestAsInt32
+    and "cannot use maxv + 1 (untyped int constant 18014398509481985)
+    as int value in argument to fmt.Sprintf (overflows)" in TestAsFloat64
+    on 32-bit architectures.
+    See https://github.com/aws/smithy-go/pull/514
+
+ -- Anthony Fok <foka@debian.org>  Sat, 01 Jun 2024 07:44:03 -0600
+
+golang-github-aws-smithy-go (1.20.2-1) unstable; urgency=medium
+
+  * New upstream version 1.20.2
+  * Bump build-dependency golang-any (>= 2:1.20~) as per go.mod
+  * Remove dependency on golang-github-google-go-cmp-dev as per go.mod
+  * Bump Standards-Version to 4.7.0 (no change)
+
+ -- Anthony Fok <foka@debian.org>  Fri, 26 Apr 2024 05:30:52 -0600
+
+golang-github-aws-smithy-go (1.19.0-1) unstable; urgency=medium
+
+  * New upstream version 1.19.0
+  * Add debian/watch
+  * Reorder fields in debian/control and debian/copyright
+  * Change Section from devel to golang
+  * Bump debhelper build-dependency to debhelper-compat (= 13)"
+  * Bump versioned dependencies as per go.mod
+  * Bump Standards-Version to 4.6.2 (no change)
+  * Drop -dev package’s unused dependency on ${shlibs:Depends}
+  * Add "Rules-Requires-Root: no" to debian/control
+  * Use dh-sequence-golang instead of dh-golang and --with=golang
+  * Invoke dh with --builddirectory=_build
+  * Add myself to the list of Uploaders
+  * debian/gbp.conf: Set debian-branch to debian/sid for DEP-14 conformance
+
+ -- Anthony Fok <foka@debian.org>  Fri, 23 Feb 2024 15:00:40 -0700
+
+golang-github-aws-smithy-go (1.13.3-2) unstable; urgency=medium
+
+  * Team upload
+
+  [ Daniel Swarbrick ]
+  * Source-only re-upload for testing migration
+
+  [ Debian Janitor ]
+  * Add Multi-Arch: foreign
+
+ -- Daniel Swarbrick <dswarbrick@debian.org>  Tue, 31 Jan 2023 23:02:59 +0000
+
+golang-github-aws-smithy-go (1.13.3-1) unstable; urgency=medium
+
+  * Initial packaging (Closes: #1022852).
+
+ -- Thomas Goirand <zigo@debian.org>  Tue, 05 Apr 2022 12:07:01 +0200
